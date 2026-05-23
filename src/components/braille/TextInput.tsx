@@ -235,15 +235,15 @@ export const TextInput: React.FC<TextInputProps> = ({
   };
   
   return (
-    <div className={cn('bg-white rounded-lg shadow-lg border border-gray-200', className)}>
+    <div className={cn('bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700', className)}>
       {/* Header */}
-      <div className="border-b border-gray-200 p-4">
+      <div className="border-b border-gray-200 dark:border-gray-700 p-4">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center space-y-4 sm:space-y-0">
           <div>
-            <h2 className="text-xl font-semibold text-gray-900">
+            <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
               Texto de Entrada
             </h2>
-            <p className="text-sm text-gray-600">
+            <p className="text-sm text-gray-600 dark:text-gray-400">
               Ingresa o carga el texto español que deseas convertir
             </p>
           </div>
@@ -296,8 +296,8 @@ export const TextInput: React.FC<TextInputProps> = ({
       <div
         className={cn(
           'relative border-2 border-dashed rounded-lg transition-colors',
-          isDragging ? 'border-blue-500 bg-blue-50' : 'border-gray-300',
-          'hover:border-gray-400'
+          isDragging ? 'border-blue-500 bg-blue-50 dark:bg-blue-900/20' : 'border-gray-300 dark:border-gray-600',
+          'hover:border-gray-400 dark:hover:border-gray-500'
         )}
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
@@ -310,7 +310,7 @@ export const TextInput: React.FC<TextInputProps> = ({
           onKeyDown={handleKeyDown}
           placeholder={placeholder}
           maxLength={maxLength}
-          className="w-full h-64 p-4 resize-none focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent rounded-lg"
+          className="w-full h-64 p-4 resize-none focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent rounded-lg bg-transparent dark:text-white"
           disabled={isProcessing}
         />
         
@@ -327,17 +327,17 @@ export const TextInput: React.FC<TextInputProps> = ({
       </div>
       
       {/* Estadísticas y acciones */}
-      <div className="border-t border-gray-200 p-4">
+      <div className="border-t border-gray-200 dark:border-gray-700 p-4">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center space-y-4 sm:space-y-0">
           <div className="flex items-center space-x-4 text-sm text-gray-600">
             <span>
-              Caracteres: <span className="font-medium text-gray-900">{charCount}</span>
+              Caracteres: <span className="font-medium text-gray-900 dark:text-white">{charCount}</span>
             </span>
             <span>
-              Palabras: <span className="font-medium text-gray-900">{wordCount}</span>
+              Palabras: <span className="font-medium text-gray-900 dark:text-white">{wordCount}</span>
             </span>
             <span>
-              Máximo: <span className="font-medium text-gray-900">{maxLength}</span>
+              Máximo: <span className="font-medium text-gray-900 dark:text-white">{maxLength}</span>
             </span>
           </div>
           

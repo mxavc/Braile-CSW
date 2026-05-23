@@ -61,9 +61,9 @@ export const BrailleSymbol: React.FC<BrailleSymbolProps> = ({
     return (
       <div
         className={cn(
-          'relative grid grid-cols-2 grid-rows-3 gap-1 p-1 border-2 border-gray-300 rounded',
+          'relative grid grid-cols-2 grid-rows-3 gap-1 p-1 border-2 border-gray-300 dark:border-gray-600 rounded',
           sizeClasses[size],
-          interactive && 'cursor-pointer hover:border-blue-500 hover:bg-blue-50 transition-colors',
+          interactive && 'cursor-pointer hover:border-blue-500 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors',
           className
         )}
         onClick={interactive ? onClick : undefined}
@@ -82,7 +82,7 @@ export const BrailleSymbol: React.FC<BrailleSymbolProps> = ({
           className={cn(
             'rounded-full transition-colors justify-self-center self-center',
             dotSizes[size],
-            dots[0] ? 'bg-gray-900' : 'bg-gray-200'
+            dots[0] ? 'bg-gray-900 dark:bg-white' : 'bg-gray-200 dark:bg-gray-700'
           )}
           aria-hidden="true"
         />
@@ -92,7 +92,7 @@ export const BrailleSymbol: React.FC<BrailleSymbolProps> = ({
           className={cn(
             'rounded-full transition-colors justify-self-center self-center',
             dotSizes[size],
-            dots[3] ? 'bg-gray-900' : 'bg-gray-200'
+            dots[3] ? 'bg-gray-900 dark:bg-white' : 'bg-gray-200 dark:bg-gray-700'
           )}
           aria-hidden="true"
         />
@@ -102,7 +102,7 @@ export const BrailleSymbol: React.FC<BrailleSymbolProps> = ({
           className={cn(
             'rounded-full transition-colors justify-self-center self-center',
             dotSizes[size],
-            dots[1] ? 'bg-gray-900' : 'bg-gray-200'
+            dots[1] ? 'bg-gray-900 dark:bg-white' : 'bg-gray-200 dark:bg-gray-700'
           )}
           aria-hidden="true"
         />
@@ -112,7 +112,7 @@ export const BrailleSymbol: React.FC<BrailleSymbolProps> = ({
           className={cn(
             'rounded-full transition-colors justify-self-center self-center',
             dotSizes[size],
-            dots[4] ? 'bg-gray-900' : 'bg-gray-200'
+            dots[4] ? 'bg-gray-900 dark:bg-white' : 'bg-gray-200 dark:bg-gray-700'
           )}
           aria-hidden="true"
         />
@@ -122,7 +122,7 @@ export const BrailleSymbol: React.FC<BrailleSymbolProps> = ({
           className={cn(
             'rounded-full transition-colors justify-self-center self-center',
             dotSizes[size],
-            dots[2] ? 'bg-gray-900' : 'bg-gray-200'
+            dots[2] ? 'bg-gray-900 dark:bg-white' : 'bg-gray-200 dark:bg-gray-700'
           )}
           aria-hidden="true"
         />
@@ -132,7 +132,7 @@ export const BrailleSymbol: React.FC<BrailleSymbolProps> = ({
           className={cn(
             'rounded-full transition-colors justify-self-center self-center',
             dotSizes[size],
-            dots[5] ? 'bg-gray-900' : 'bg-gray-200'
+            dots[5] ? 'bg-gray-900 dark:bg-white' : 'bg-gray-200 dark:bg-gray-700'
           )}
           aria-hidden="true"
         />
@@ -146,8 +146,8 @@ export const BrailleSymbol: React.FC<BrailleSymbolProps> = ({
     return (
       <code
         className={cn(
-          'font-mono text-xs bg-gray-100 px-2 py-1 rounded border border-gray-300',
-          interactive && 'cursor-pointer hover:bg-gray-200 transition-colors',
+          'font-mono text-xs bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded border border-gray-300 dark:border-gray-600',
+          interactive && 'cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors',
           className
         )}
         onClick={interactive ? onClick : undefined}

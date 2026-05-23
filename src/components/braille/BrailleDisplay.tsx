@@ -58,7 +58,7 @@ export const BrailleDisplay: React.FC<BrailleDisplayProps> = ({
               // Future: show symbol details
             }}
           />
-          <span className="text-xs text-gray-600 font-mono">
+          <span className="text-xs text-gray-600 dark:text-gray-400 font-mono">
             {symbol.character}
           </span>
         </div>
@@ -81,7 +81,7 @@ export const BrailleDisplay: React.FC<BrailleDisplayProps> = ({
             size="sm"
             displayMode={displayMode}
           />
-          <span className="text-sm text-gray-600 font-mono">
+          <span className="text-sm text-gray-600 dark:text-gray-400 font-mono">
             {symbol.character}
           </span>
         </div>
@@ -93,7 +93,7 @@ export const BrailleDisplay: React.FC<BrailleDisplayProps> = ({
    * Renderiza la vista de texto plano
    */
   const renderTextView = () => (
-    <div className="p-4 bg-gray-50 rounded-lg">
+    <div className="p-4 bg-gray-50 dark:bg-gray-900 rounded-lg">
       <pre className="font-mono text-sm whitespace-pre-wrap break-all">
         {brailleText}
       </pre>
@@ -104,32 +104,32 @@ export const BrailleDisplay: React.FC<BrailleDisplayProps> = ({
    * Renderiza las estadísticas
    */
   const renderStatistics = () => (
-    <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-      <h3 className="text-lg font-semibold text-blue-900 mb-3">
+    <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
+      <h3 className="text-lg font-semibold text-blue-900 dark:text-blue-100 mb-3">
         Estadísticas de Transcripción
       </h3>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
         <div>
-          <div className="text-gray-600">Caracteres totales</div>
-          <div className="font-semibold text-blue-900">
+          <div className="text-gray-600 dark:text-gray-400">Caracteres totales</div>
+          <div className="font-semibold text-blue-900 dark:text-blue-100">
             {statistics.totalCharacters}
           </div>
         </div>
         <div>
-          <div className="text-gray-600">Símbolos Braille</div>
-          <div className="font-semibold text-blue-900">
+          <div className="text-gray-600 dark:text-gray-400">Símbolos Braille</div>
+          <div className="font-semibold text-blue-900 dark:text-blue-100">
             {statistics.totalSymbols}
           </div>
         </div>
         <div>
-          <div className="text-gray-600">No reconocidos</div>
-          <div className="font-semibold text-red-600">
+          <div className="text-gray-600 dark:text-gray-400">No reconocidos</div>
+          <div className="font-semibold text-red-600 dark:text-red-400">
             {statistics.unrecognizedCharacters}
           </div>
         </div>
         <div>
-          <div className="text-gray-600">Tiempo procesamiento</div>
-          <div className="font-semibold text-blue-900">
+          <div className="text-gray-600 dark:text-gray-400">Tiempo procesamiento</div>
+          <div className="font-semibold text-blue-900 dark:text-blue-100">
             {statistics.processingTime.toFixed(2)}ms
           </div>
         </div>
@@ -138,22 +138,22 @@ export const BrailleDisplay: React.FC<BrailleDisplayProps> = ({
   );
   
   return (
-    <div className={cn('bg-white rounded-lg shadow-lg border border-gray-200', className)}>
+    <div className={cn('bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700', className)}>
       {/* Header con controles */}
-      <div className="border-b border-gray-200 p-4">
+      <div className="border-b border-gray-200 dark:border-gray-700 p-4">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center space-y-4 sm:space-y-0">
           <div>
-            <h2 className="text-xl font-semibold text-gray-900">
+            <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
               Resultado Braille
             </h2>
-            <p className="text-sm text-gray-600">
+            <p className="text-sm text-gray-600 dark:text-gray-400">
               {symbols.length} símbolos generados
             </p>
           </div>
           
           <div className="flex flex-wrap gap-2">
             {/* Controles de visualización */}
-            <div className="flex items-center space-x-2 bg-gray-100 rounded-lg p-1">
+            <div className="flex items-center space-x-2 bg-gray-100 dark:bg-gray-900 rounded-lg p-1">
               <Button
                 variant={displayMode === 'dots' ? 'default' : 'ghost'}
                 size="sm"
@@ -178,7 +178,7 @@ export const BrailleDisplay: React.FC<BrailleDisplayProps> = ({
             </div>
             
             {/* Controles de vista */}
-            <div className="flex items-center space-x-2 bg-gray-100 rounded-lg p-1">
+            <div className="flex items-center space-x-2 bg-gray-100 dark:bg-gray-900 rounded-lg p-1">
               <Button
                 variant={viewMode === 'grid' ? 'default' : 'ghost'}
                 size="sm"
@@ -218,8 +218,8 @@ export const BrailleDisplay: React.FC<BrailleDisplayProps> = ({
       
       {/* Panel de configuración */}
       {showSettings && (
-        <div className="border-b border-gray-200 p-4 bg-gray-50">
-          <h3 className="text-sm font-semibold text-gray-900 mb-3">
+        <div className="border-b border-gray-200 dark:border-gray-700 p-4 bg-gray-50 dark:bg-gray-900">
+          <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-3">
             Opciones de Exportación
           </h3>
           <div className="flex flex-wrap gap-2">
@@ -260,7 +260,7 @@ export const BrailleDisplay: React.FC<BrailleDisplayProps> = ({
       </div>
       
       {/* Estadísticas */}
-      <div className="border-t border-gray-200 p-4">
+      <div className="border-t border-gray-200 dark:border-gray-700 p-4">
         {renderStatistics()}
       </div>
     </div>

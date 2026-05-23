@@ -9,7 +9,7 @@ export default function Footer() {
           <div className="col-span-1 md:col-span-2">
             <h3 className="text-2xl font-bold mb-4">Proyecto Web</h3>
             <p className="text-gray-300 mb-4 max-w-md">
-              Una solución web moderna y funcional desarrollada con las mejores tecnologías 
+              Una solución web moderna y funcional desarrollada con las mejores tecnologías
               y prácticas del mercado. Construido para ofrecer la mejor experiencia digital.
             </p>
             <div className="flex space-x-4">
@@ -40,8 +40,8 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#about" className="text-gray-300 hover:text-white transition-colors">
-                  Sobre Nosotros
+                <a href="#transcriptor" className="text-gray-300 hover:text-white transition-colors">
+                  Transcriptor
                 </a>
               </li>
               <li>

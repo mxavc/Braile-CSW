@@ -14,7 +14,7 @@ export default function Home() {
   const [isProcessing, setIsProcessing] = useState(false)
   const [errors, setErrors] = useState<string[]>([])
   const [unsupportedCharacters, setUnsupportedCharacters] = useState<string[]>([])
-  
+
   const transcriber = new SpanishToBrailleTranscriber()
 
   /**
@@ -59,13 +59,13 @@ export default function Home() {
       setIsProcessing(false)
     }
   }
-  
+
   /**
    * Maneja la exportación de resultados
    */
   const handleExport = (format: 'text' | 'json' | 'pdf') => {
     if (!transcriptionResult) return
-    
+
     switch (format) {
       case 'text':
         exportAsText(transcriptionResult)
@@ -78,13 +78,13 @@ export default function Home() {
         break
     }
   }
-  
+
   /**
    * Exporta como archivo de texto
    */
   const exportAsText = (result: BrailleOutput) => {
     const content = `Texto Original:\n${result.originalText}\n\nTranscripción Braille:\n${result.brailleText}\n\nEstadísticas:\nCaracteres: ${result.statistics.totalCharacters}\nSímbolos: ${result.statistics.totalSymbols}\nTiempo: ${result.statistics.processingTime.toFixed(2)}ms`
-    
+
     const blob = new Blob([content], { type: 'text/plain' })
     const url = URL.createObjectURL(blob)
     const a = document.createElement('a')
@@ -93,13 +93,13 @@ export default function Home() {
     a.click()
     URL.revokeObjectURL(url)
   }
-  
+
   /**
    * Exporta como JSON
    */
   const exportAsJSON = (result: BrailleOutput) => {
     const content = JSON.stringify(result, null, 2)
-    
+
     const blob = new Blob([content], { type: 'application/json' })
     const url = URL.createObjectURL(blob)
     const a = document.createElement('a')
@@ -108,58 +108,58 @@ export default function Home() {
     a.click()
     URL.revokeObjectURL(url)
   }
-  
+
   /**
    * Exporta como PDF (placeholder)
    */
   const exportAsPDF = (result: BrailleOutput) => {
     alert('Exportación PDF en desarrollo. Por ahora, usa la opción de texto.')
   }
-  
+
   return (
-    <main className="min-h-screen bg-gray-50">
+    <main className="min-h-screen bg-gray-50 dark:bg-gray-950">
       <Header />
-      
+
       {/* Hero Section adaptado para el transcriptor */}
-      <section className="py-12 bg-gradient-to-br from-blue-50 to-indigo-100">
+      <section id="home" className="py-12 bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-indigo-950 pt-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
               Transcriptor Español a
               <span className="text-blue-600"> Braille</span>
             </h1>
-            
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Convierte texto español a su representación en Braille. 
+
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+              Convierte texto español a su representación en Braille.
               Soporta el alfabeto completo, números, vocales acentuadas y signos de puntuación.
             </p>
           </div>
-          
+
           {/* Características principales */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            <div className="bg-white rounded-lg p-6 shadow-lg">
+          <div id="features" className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 scroll-mt-24">
+            <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg">
               <div className="text-blue-600 text-3xl font-bold mb-2">🔤</div>
-              <div className="text-gray-900 font-semibold mb-1">Alfabeto Completo</div>
-              <div className="text-gray-600 text-sm">Soporta todas las letras del español</div>
+              <div className="text-gray-900 dark:text-white font-semibold mb-1">Alfabeto Completo</div>
+              <div className="text-gray-600 dark:text-gray-400 text-sm">Soporta todas las letras del español</div>
             </div>
-            
-            <div className="bg-white rounded-lg p-6 shadow-lg">
+
+            <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg">
               <div className="text-green-600 text-3xl font-bold mb-2">🔢</div>
-              <div className="text-gray-900 font-semibold mb-1">Números</div>
-              <div className="text-gray-600 text-sm">Conversión de dígitos del 0 al 9</div>
+              <div className="text-gray-900 dark:text-white font-semibold mb-1">Números</div>
+              <div className="text-gray-600 dark:text-gray-400 text-sm">Conversión de dígitos del 0 al 9</div>
             </div>
-            
-            <div className="bg-white rounded-lg p-6 shadow-lg">
+
+            <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg">
               <div className="text-purple-600 text-3xl font-bold mb-2">✨</div>
-              <div className="text-gray-900 font-semibold mb-1">Caracteres Especiales</div>
-              <div className="text-gray-600 text-sm">Vocales acentuadas y signos</div>
+              <div className="text-gray-900 dark:text-white font-semibold mb-1">Caracteres Especiales</div>
+              <div className="text-gray-600 dark:text-gray-400 text-sm">Vocales acentuadas y signos</div>
             </div>
           </div>
         </div>
       </section>
-      
+
       {/* Sección principal del transcriptor */}
-      <section className="py-12">
+      <section id="transcriptor" className="py-12 scroll-mt-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Panel de entrada */}
@@ -175,7 +175,7 @@ export default function Home() {
                 maxLength={5000}
               />
             </div>
-            
+
             {/* Panel de resultados */}
             <div className="space-y-6">
               {transcriptionResult ? (
@@ -184,13 +184,13 @@ export default function Home() {
                   onExport={handleExport}
                 />
               ) : (
-                <div className="bg-white rounded-lg shadow-lg border border-gray-200 p-8 text-center">
-                  <div className="text-gray-400 mb-4">
+                <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 p-8 text-center">
+                  <div className="text-gray-400 dark:text-gray-500 mb-4">
                     <div className="text-6xl mb-4">📝</div>
-                    <h3 className="text-xl font-semibold text-gray-600 mb-2">
+                    <h3 className="text-xl font-semibold text-gray-600 dark:text-gray-300 mb-2">
                       Esperando texto para transcribir
                     </h3>
-                    <p className="text-gray-500">
+                    <p className="text-gray-500 dark:text-gray-400">
                       Ingresa texto en el panel izquierdo y haz clic en "Transcribir"
                     </p>
                   </div>
@@ -200,7 +200,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      
+
       <Footer />
     </main>
   )
